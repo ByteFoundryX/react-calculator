@@ -1,29 +1,43 @@
-import './Calculator.css'
+import { useState } from 'react';
+import './Calculator.css';
 
 function Calculator() {
 
+
+    let [ result , setResult ] =  useState('')
+
+
+    const clickHandler = (e) => {
+
+        let input = e.target.innerText
+
+        if(input == '.' && result.includes('.')) return
+        setResult(result + input)     
+
+    }
+
     return(
         <div className="container" >
-            <div className="screen"></div>
+            <div className="screen">{result}</div>
             <div className="buttons">
                 <button className="color twocol" >Clear</button>
                 <button className="color" >c</button>
-                <button className="color">÷</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button className="color">×</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button className="color">-</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button className="color">+</button>
-                <button>0</button>
-                <button className="color">.</button>
-                <button className="color twocol"  >=</button>
+                <button  onClick={clickHandler}  className="color">÷</button>
+                <button onClick={clickHandler} >7</button>
+                <button onClick={clickHandler} >8</button>
+                <button onClick={clickHandler} >9</button>
+                <button onClick={clickHandler}  className="color">×</button>
+                <button onClick={clickHandler} >4</button>
+                <button onClick={clickHandler} >5</button>
+                <button onClick={clickHandler} >6</button>
+                <button onClick={clickHandler}  className="color">-</button>
+                <button onClick={clickHandler} >1</button>
+                <button onClick={clickHandler} >2</button>
+                <button onClick={clickHandler} >3</button>
+                <button  onClick={clickHandler} className="color">+</button>
+                <button onClick={clickHandler} >0</button>
+                <button onClick={clickHandler}  className="color">.</button>
+                <button onClick={clickHandler}  className="color twocol"  >=</button>
             </div>
         </div>
     )
