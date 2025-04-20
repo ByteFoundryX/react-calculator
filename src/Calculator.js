@@ -16,12 +16,25 @@ function Calculator() {
 
     }
 
+
+
+    const clearBtn = () =>{
+        setResult('')
+    }
+
+    
+    const backSoaceBtn = () =>{
+        setResult(result.slice(0 ,-1))
+    }
+
+   
+
     return(
         <div className="container" >
             <div className="screen">{result}</div>
             <div className="buttons">
-                <button className="color twocol" >Clear</button>
-                <button className="color" >c</button>
+                <button onClick={clearBtn} className="color twocol" >Clear</button>
+                <button  onClick={backSoaceBtn} className="color" >c</button>
                 <button  onClick={clickHandler}  className="color">÷</button>
                 <button onClick={clickHandler} >7</button>
                 <button onClick={clickHandler} >8</button>
