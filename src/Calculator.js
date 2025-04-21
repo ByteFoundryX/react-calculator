@@ -27,6 +27,10 @@ function Calculator() {
         setResult(result.slice(0 ,-1))
     }
 
+
+    const equalBtn = () =>{
+        setResult(String(eval(result)))
+    }
    
 
     return(
@@ -50,7 +54,7 @@ function Calculator() {
                 <button  onClick={clickHandler} className="color">+</button>
                 <button onClick={clickHandler} >0</button>
                 <button onClick={clickHandler}  className="color">.</button>
-                <button onClick={clickHandler}  className="color twocol"  >=</button>
+                <button onClick={equalBtn}  className="color twocol"  >=</button>
             </div>
         </div>
     )
