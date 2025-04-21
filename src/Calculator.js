@@ -38,11 +38,17 @@ function Calculator() {
    
     const clearBtn = () =>{
         setResult('')
+        setHasDot(false)
     }
 
     
     const backSoaceBtn = () =>{
+        if(result.endsWith('.'))
+            setHasDot(false)
         setResult(result.slice(0 ,-1))
+        
+        
+
     }
 
 
