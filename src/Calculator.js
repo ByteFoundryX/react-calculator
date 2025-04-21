@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { evaluate } from 'mathjs';
 import './Calculator.css';
 
 function Calculator() {
@@ -12,8 +13,8 @@ function Calculator() {
  
 
     const checkInput  = (Text) =>{
-        if(Text == '÷') return '/'
-        if(Text == '×') return '*'
+        if(Text === '÷') return '/'
+        if(Text ==='×') return '*'
         return Text
 
     }
@@ -22,7 +23,7 @@ function Calculator() {
     const clickHandler = (e) => {
 
         let input = checkInput(e.target.innerText)
-        if(input == '.') {
+        if(input === '.') {
             if (hasDot == true) return
             else setHasDot(true)
         }
@@ -53,7 +54,7 @@ function Calculator() {
 
 
     const equalBtn = () =>{
-        setResult(String(eval(result)))
+        setResult(String(evaluate(result)))
         setHasDot(false)
     }
    
