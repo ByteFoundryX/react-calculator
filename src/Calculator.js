@@ -6,6 +6,10 @@ function Calculator() {
 
     let [ result , setResult ] =  useState('')
 
+    let [hasDot , setHasDot] = useState(false)
+
+    let opreators = [ '+' , '*', '/' , '-']
+ 
 
     const checkInput  = (Text) =>{
         if(Text == '÷') return '/'
@@ -18,13 +22,20 @@ function Calculator() {
     const clickHandler = (e) => {
 
         let input = checkInput(e.target.innerText)
-        if(input == '.' && result.includes('.')) return
-        setResult(result + input)     
+        if(input == '.') {
+            if (hasDot == true) return
+            else setHasDot(true)
+        }
+            if (opreators.includes(input)) {
+                setHasDot(false)
+            }
+        
+            setResult(result + input)     
 
     }
 
 
-
+   
     const clearBtn = () =>{
         setResult('')
     }
@@ -37,6 +48,7 @@ function Calculator() {
 
     const equalBtn = () =>{
         setResult(String(eval(result)))
+        setHasDot(false)
     }
    
 
